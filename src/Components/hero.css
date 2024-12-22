@@ -51,3 +51,16 @@
   margin: 20px;
   background-color: #f0f0f0;
 }
+
+.dot-line {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: orange;
+}
+
+.line-dot {
+  width: 1px;
+  height: 25px;
+  background: lightsalmon;
+}
