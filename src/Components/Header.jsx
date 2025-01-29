@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems, "cart");
+  // console.log(cartItems, "cart");
 
   // const onlineStatus = useOnlineStatus();
   return (
@@ -19,7 +19,6 @@ const Header = () => {
       </div>
       <div className="pt-4 px-9">
         <ul className="flex flex-row items-center">
-          {/* <li>{onlineStatus ? "✅" : "❌"}</li> */}
           <li className="px-4">
             <Link to="">Home</Link>
           </li>

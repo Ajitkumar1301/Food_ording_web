@@ -7,13 +7,39 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      state.items.push(action.payload);
+      if (state.items.length > 0) {
+        const existingItem = state.items.find(
+          (cartItem) =>
+            cartItem?.card?.info?.id === action.payload.card?.info?.id
+        );
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          state.items.push({ ...action.payload, quantity: 1 });
+        }
+      } else {
+        state.items.push({ ...action.payload, quantity: 1 });
+      }
     },
     removeItem: (state, action) => {
-      state.items.pop();
+      const existingItem = state.items.find(
+        (cartItem) =>
+          cartItem?.card?.info?.id === action.payload?.card?.info?.id
+      );
+
+      if (existingItem) {
+        if (existingItem.quantity > 1) {
+          existingItem.quantity -= 1;
+        } else {
+          state.items = state.items.filter(
+            (cartItem) =>
+              cartItem?.card?.info?.id !== action.payload.card?.info?.id
+          );
+        }
+      }
     },
     clearCartItems: (state, action) => {
-      state.items.length = 0;
+      state.items = [];
     },
   },
 });

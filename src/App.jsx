@@ -7,6 +7,7 @@ import RestaurantMenu from "./Components/RestaurantMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appstore";
 import CartPage from "./pages/CartPage";
+import Aboutus from "./Components/Aboutus";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<Aboutus />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/restaurant/:resId" element={<RestaurantMenu />} />
